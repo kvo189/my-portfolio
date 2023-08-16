@@ -1,8 +1,7 @@
 import { Navigation } from '@/components/Navigation';
 import Head from 'next/head';
-import Image from 'next/image';
 
-export default function Home() {
+export default function App() {
   const bodyPadding = 'px-5 sm:px-12 lg:px-32';
   return (
     <>
