@@ -15,9 +15,14 @@ const config: Config = {
       },
       colors: {
         'primary-red': '#F1665A',
+        'primary-red-hover': '#ef574a',
+        'primary-red-active': '#ee493b',
         'primary-blue': '#8DA9D4',
         'primary-yellow': '#EBCA9A',
         'primary-gray': '#F0EFF4',
+        'secondary-gray': '#25283A;',
+        'secondary-gray-50': '#25283A80',
+        'secondary-gray2': '#474B63',
       },    
       fontFamily: {
         'urbanist': ['Urbanist', 'sans-serif'],

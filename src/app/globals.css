@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-  font-family: 'Urbanist', sans-serif;
+  font-family: var(--font-urbanist);
 }
 
 button {

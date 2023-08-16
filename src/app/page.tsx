@@ -1,22 +1,62 @@
 import { Navigation } from '@/components/Navigation';
-import Head from 'next/head';
+import { Metadata } from 'next';
+import { notoSans, rubik } from './font';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+import profilePic from '@/assets/me_2.jpg';
+import { faLinkedin, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { SocialMediaButton } from '@/components/SocialMediaButton/SocialMediaButton';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { Button } from '@/components/Button';
+config.autoAddCss = false;
 
-export default function App() {
+export const metadata: Metadata = {
+  title: 'Home App',
+};
+
+export default function Home() {
   const bodyPadding = 'px-5 sm:px-12 lg:px-32';
   return (
     <>
-      <Head>
-        <title>Home App</title>
-
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin="anonymous" />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
-          rel='stylesheet'
-        />
-      </Head>
       <Navigation padding={bodyPadding} />
-      <main className={`flex min-h-screen flex-col items-center justify-between ${bodyPadding}`}></main>
+      <main className={`flex min-h-screen flex-col items-center justify-between ${bodyPadding} max-w-5xl m-auto`}>
+        <HomeContent />
+      </main>
+    </>
+  );
+}
+
+function HomeContent() {
+  return (
+    <>
+      <section className={`${rubik.className} text-center mt-10 flex flex-col md:flex-row md:gap-12 items-center text-secondary-gray`}>
+        <div className='mt-6 px-14 md:px-0 flex flex-1 md:flex-initial justify-center'>
+          <Image className='rounded-3xl' src={profilePic} alt='' width={200} height={200} />
+        </div>
+        <div className='flex flex-col flex-1 md:items-start md:text-left'>
+          <h2 className={`${notoSans.className} text-4xl font-bold`}>
+            <span className='text-lg'>Hello,</span>
+            <br></br>
+            I'm <span className='text-primary-red'>Khang</span>
+          </h2>
+          <p className='mt-4 text-secondary-gray-50'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          </p>
+          <div className='mt-6 flex items-center justify-center gap-6'>
+            <Button icon={faPaperPlane} text="Let's talk" anchor={true} />
+            <a href='' className='text-secondary-gray2'>
+              See my projects
+            </a>
+          </div>
+          <div className='mt-6 text-xl flex items-center justify-center gap-3'>
+            <span className='text-secondary-gray2'>Follow Me:</span>
+            <SocialMediaButton icon={faLinkedinIn} />
+            <SocialMediaButton icon={faGithub} />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
