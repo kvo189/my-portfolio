@@ -22,10 +22,12 @@ const config: Config = {
         'primary-gray': '#F0EFF4',
         'secondary-gray': '#25283A;',
         'secondary-gray-50': '#25283A80',
+        'secondary-gray-75': '#25283ABF',
         'secondary-gray2': '#474B63',
       },    
       fontFamily: {
         'urbanist': ['Urbanist', 'sans-serif'],
+        'rubik': ['Rubik', 'sans-serif'],
       }
     },
   },

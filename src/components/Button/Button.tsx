@@ -13,7 +13,7 @@ export function Button({ icon, text, anchor = false }: ButtonProps) {
   return (
     <>
       <Tag
-        className='relative text-white text-sm font-medium 
+        className='relative text-white text-base md:text-lg font-medium 
         select-none py-2 px-3 
         flex gap-1 items-center justify-center
         w-fit cursor-pointer

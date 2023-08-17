@@ -6,6 +6,11 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+  --break-sm: 640px;
+  --break-md: 768px;
+  --break-lg: 1024px;
+  --break-xl: 1280px;
+  --break-2xl: 1536px;
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -2,7 +2,7 @@ import { Inter, Urbanist, Rubik, Noto_Sans } from 'next/font/google'
  
 export const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-rubik',
+  variable: '--font-inter',
   display: 'auto',
   preload: true,
 })
@@ -16,6 +16,7 @@ export const urbanist = Urbanist({
  
 export const rubik = Rubik({
   subsets: ['latin'],
+  weight: ["400", "500", "600", "700"],
   variable: '--font-rubik',
   display: 'auto',
   preload: true,
