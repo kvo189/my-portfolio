@@ -6,18 +6,20 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
 interface SocialMediaButtonProps {
-  icon: IconLookup
+  icon: IconLookup;
+  href: string;
 }
 
-export function SocialMediaButton({ icon }: SocialMediaButtonProps) {
+export function SocialMediaButton({ icon, href }: SocialMediaButtonProps) {
   return (
     <>
-      <button
+      <a
         className='group rounded-full w-9 h-9 bg-[#79869F1A] hover:bg-[#EA4C88] hover:cursor-pointer
             flex justify-center items-center'
+        href={href}
       >
         <FontAwesomeIcon color={`#79869F`} icon={icon} className='group-hover:text-white' />
-      </button>
+      </a>
     </>
   );
 }

@@ -18,6 +18,7 @@ const config: Config = {
         'primary-red-hover': '#ef574a',
         'primary-red-active': '#ee493b',
         'primary-blue': '#8DA9D4',
+        'dark-blue': '#010F5C',
         'primary-yellow': '#EBCA9A',
         'primary-gray': '#F0EFF4',
         'secondary-gray': '#25283A;',
@@ -26,8 +27,10 @@ const config: Config = {
         'secondary-gray2': '#474B63',
       },    
       fontFamily: {
-        'urbanist': ['Urbanist', 'sans-serif'],
-        'rubik': ['Rubik', 'sans-serif'],
+        inter: ['var(--font-inter)'],
+        urbanist: ['var(--font-urbanist)'],
+        rubik: ['var(--font-rubik)'],
+        notoSans: ['var(--font-notoSans)'],
       }
     },
   },

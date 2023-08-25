@@ -44,7 +44,7 @@
     font-family: var(--font-rubik);
     border-radius: 10px;
     background: #FFF;
-    box-shadow: -6px 6px 25px 0px rgba(255, 89, 90, 0.08);
+    box-shadow: 6px 6px 25px 0px rgba(255, 89, 90, 0.2);
     /* padding: 16px; */
     display: flex;
     flex-direction: column;

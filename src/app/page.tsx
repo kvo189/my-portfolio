@@ -4,6 +4,7 @@ import { notoSans, rubik } from './font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import profilePic from '@/assets/me_edit.png';
+import projectCardPlaceHolderImg from '@/assets/project_card_placeholder.png';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 import {
   faLinkedin,
@@ -28,17 +29,18 @@ import styles from './page.module.css';
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
-  title: 'Home App',
+  title: 'Khang Vo | My Portfolio',
 };
 
 export default function Home() {
-  const bodyPadding = 'px-5 sm:px-8';
+  const bodyPadding = 'px-6 sm:px-16';
   return (
     <>
       <Navigation padding={bodyPadding} />
       <main className={`py-10 flex min-h-screen flex-col items-center gap-10 ${bodyPadding} max-w-6xl m-auto`}>
         <HomeContent />
         <Section1 />
+        <Section2 />
       </main>
     </>
   );
@@ -55,7 +57,7 @@ function HomeContent() {
           <br></br>
           <span className='text-secondary-gray'>I build innovative solutions through code.</span>
         </h2>
-        <p className='mt-3 text-secondary-gray-50 font-medium font-rubik lg:text-lg'>
+        <p className='mt-3 text-secondary-gray-75 font-rubik lg:text-lg'>
           Full stack developer with industry experience building web applications. <br></br>
           Currently, I'm crafting exceptional digital experiences for members, customers, and health advisors at{' '}
           <span className='text-primary-red'>Pack Health - A Quest Diagnostics company</span>.
@@ -68,8 +70,8 @@ function HomeContent() {
         </div>
         <div className='mt-6 text-lg flex items-center justify-center gap-3'>
           <span className='text-secondary-gray2'>Follow Me:</span>
-          <SocialMediaButton icon={faLinkedinIn} />
-          <SocialMediaButton icon={faGithub} />
+          <SocialMediaButton icon={faLinkedinIn} href='https://www.linkedin.com/in/khang-vo-kvo/' />
+          <SocialMediaButton icon={faGithub} href='https://github.com/kvo189' />
         </div>
       </div>
       {/* Image */}
@@ -119,7 +121,7 @@ function Section1() {
       icon: faJava,
     },
     {
-      name: 'faBootstrap',
+      name: 'Bootstrap',
       icon: faBootstrap,
     },
   ];
@@ -130,7 +132,7 @@ function Section1() {
           <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold`}>
             Ready to Elevate Your Next <span className='text-primary-red'>Project!</span>
           </h2>
-          <p className='mt-3 text-secondary-gray-50 font-medium font-rubik lg:text-lg'>
+          <p className='mt-3 text-secondary-gray-75 font-rubik lg:text-lg'>
             I specialize in JavaScript/TypeScript and have a strong professional background in Angular, SQL, HTML, CSS, Salesforce, and AWS.<br></br>
             Additionally, I'm well-versed in other programming languages and tools such as Java, Python, Node.js, and React. Continuously expanding my skill set, I'm always adding
             new capabilities to my repertoire.
@@ -148,5 +150,38 @@ function Section1() {
         </div>
       </section>
     </>
+  );
+}
+
+function Section2() {
+  return (
+    <>
+      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
+        <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold mb-6 sm:mb-8`}>
+          My Recent <span className='text-primary-red'>Projects</span>
+        </h2>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ProjectCard() {
+  return (
+    <div className='rounded-xl max-w-md shadow-xl relative'>
+      <Image src={projectCardPlaceHolderImg} alt='' className='rounded-xl w-full relative'></Image>
+
+      <div className='rounded-xl flex flex-col text-left p-6 -mt-16 z-10 bg-white relative'>
+        <h3 className={`${rubik.className} text-2xl text-dark-blue`}>Project Name</h3>
+        <div className='text-primary-red font-semibold text-sm'>12 March 2023</div>
+        <p className='text-secondary-gray-75'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      </div>
+    </div>
   );
 }
