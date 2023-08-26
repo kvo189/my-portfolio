@@ -26,17 +26,22 @@
 }
 
 #skillsBackground::before {
-    content          : '';       /* Set empty content                      */
-    position         : absolute; /* Position the pseudo-element absolutely */
-    width            : 76.3%;
-    height           : 90.5%;      /* Set height and width as desired        */
-    left             : 11.85%;
-    top              : 4.75%;       /* Set the offset as desired              */
-    z-index          : -1;       /* Send element to back                   */
-    background-color : rgba(235, 202, 154, 0.20);  
+    content: '';
+    /* Set empty content                      */
+    position: absolute;
+    /* Position the pseudo-element absolutely */
+    width: 76.3%;
+    height: 90.5%;
+    /* Set height and width as desired        */
+    left: 11.85%;
+    top: 4.75%;
+    /* Set the offset as desired              */
+    z-index: -1;
+    /* Send element to back                   */
+    background-color: rgba(235, 202, 154, 0.20);
     border-radius: 60px;
     border: 2px solid #EBCA9A;
-  }
+}
 
 .skillCard {
     font-size: 10px;

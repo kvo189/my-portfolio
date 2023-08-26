@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import profilePic from '@/assets/me_edit.png';
 import projectCardPlaceHolderImg from '@/assets/project_card_placeholder.png';
-import { faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase, faLocationDot, faMobile, faPhone } from '@fortawesome/free-solid-svg-icons';
 import {
   faLinkedin,
   faLinkedinIn,
@@ -23,9 +23,11 @@ import {
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { SocialMediaButton } from '@/components/SocialMediaButton/SocialMediaButton';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faAddressBook, faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { Button } from '@/components/Button';
 import styles from './page.module.css';
+import { ContactCard } from '@/components/ContactCard';
+
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -41,6 +43,8 @@ export default function Home() {
         <HomeContent />
         <Section1 />
         <Section2 />
+        <Section3 />
+        <ContactCard />
       </main>
     </>
   );
@@ -59,7 +63,7 @@ function HomeContent() {
         </h2>
         <p className='mt-3 text-secondary-gray-75 font-rubik lg:text-lg'>
           Full stack developer with industry experience building web applications. <br></br>
-          Currently, I'm crafting exceptional digital experiences for members, customers, and health advisors at{' '}
+          Currently, I&apos;m crafting exceptional digital experiences for members, customers, and health advisors at{' '}
           <span className='text-primary-red'>Pack Health - A Quest Diagnostics company</span>.
         </p>
         <div className='mt-6 flex items-center justify-center gap-6'>
@@ -134,14 +138,14 @@ function Section1() {
           </h2>
           <p className='mt-3 text-secondary-gray-75 font-rubik lg:text-lg'>
             I specialize in JavaScript/TypeScript and have a strong professional background in Angular, SQL, HTML, CSS, Salesforce, and AWS.<br></br>
-            Additionally, I'm well-versed in other programming languages and tools such as Java, Python, Node.js, and React. Continuously expanding my skill set, I'm always adding
-            new capabilities to my repertoire.
+            Additionally, I&apos;m well-versed in other programming languages and tools such as Java, Python, Node.js, and React. Continuously expanding my skill set, I&apos;m
+            always adding new capabilities to my repertoire.
           </p>
         </div>
         <div className='mt-6 flex flex-1 md:flex-1 justify-start'>
           <div id={styles.skillsBackground}>
-            {skillsArray.map((skill) => (
-              <div className={styles.skillCard}>
+            {skillsArray.map((skill, i) => (
+              <div key={skill.name} className={styles.skillCard}>
                 <FontAwesomeIcon icon={skill.icon} className='text-3xl' />
                 {skill.name}
               </div>
@@ -158,7 +162,7 @@ function Section2() {
     <>
       <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
         <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold mb-6 sm:mb-8`}>
-          My Recent <span className='text-primary-red'>Projects</span>
+          Recent <span className='text-primary-red'>Projects</span>
         </h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
           <ProjectCard />
@@ -172,6 +176,101 @@ function Section2() {
   );
 }
 
+function Section3() {
+  return (
+    <>
+      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
+        <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold mb-6 sm:mb-8`}>
+          Professional <span className='text-primary-red'>Experience</span>
+        </h2>
+        <div
+          className='relative text-white
+            p-6 text-left
+            flex flex-col
+            after:-skew-x-2 
+            after:content-[""] 
+            after:w-full 
+            after:bg-primary-red 
+            after:h-full 
+            after:block 
+            after:top-0 
+            after:left-0
+            after:absolute 
+            after:-z-10 
+            after:rounded-2xl
+            after:shadow-red'
+        >
+          <h3 className='text-xl'>Senior Software Engineer</h3>
+          <div className='text-sm text-white/60 mb-2'>Company Name</div>
+          <div className='text-lg mb-4'>July 2018 - Till Now</div>
+          <p className='font-light'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ContactCard1() {
+  return (
+    <div className='bg-white rounded-xl shadow-lg p-6'>
+      <h2 className='text-xl font-notoSans mb-2'>Let's discuss your project</h2>
+      <p className='text-secondary-gray-75 mb-4'>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p>
+
+      <div className='flex flex-col gap-2'>
+        <div className='bg-white rounded-xl shadow-lg p-6 flex gap-3'>
+          <div className='rounded-1sm bg-primary-red p-3 inline-flex items-center'>
+            <FontAwesomeIcon icon={faLocationDot} className='text-white w-6  fa-lg' />
+          </div>
+          <div>
+            <div>Location:</div>
+            <div>Birmingham, AL</div>
+          </div>
+        </div>
+        <div className='p-6 flex gap-3'>
+          <div className='rounded-1sm bg-secondary-red/10 p-3 inline-flex items-center'>
+            <FontAwesomeIcon icon={faEnvelope} className='text-primary-red w-6 fa-lg' />
+          </div>
+          <div>
+            <div>Email:</div>
+            <div>kvo189@gmail.com</div>
+          </div>
+        </div>
+
+        <div className='p-6 flex gap-3'>
+          <div className='rounded-1sm bg-secondary-red/10 p-3 inline-flex items-center'>
+            <FontAwesomeIcon icon={faAddressBook} className='text-primary-red w-6 fa-lg' />
+          </div>
+          <div>
+            <div>Phone:</div>
+            <div>714-622-0624</div>
+          </div>
+        </div>
+      </div>
+
+      <form action='' className='flex flex-col gap-6 w-full'>
+        <div className={`${styles.inputControl}`}>
+          <input id='input-name' className={`${styles.formInput}`} type='text' name='name' aria-label='Name' placeholder=' ' />
+          <label htmlFor='input-name'>Name*</label>
+        </div>
+        <div className={`${styles.inputControl}`}>
+          <input id='input-subject' className={`${styles.formInput}`} type='text' name='subject' aria-label='subject' placeholder=' ' />
+          <label htmlFor='input-subject'>Subject*</label>
+        </div>
+        <div className={`${styles.inputControl}`}>
+          <textarea id='input-message' className={`${styles.formInput}`} name='message' aria-label='message' placeholder=' ' />
+          {/* <TextareaAutosize/>  */}
+          {/* <span className={`${styles.formInput}`}  placeholder=' asd'  role='textbox' contentEditable></span> */}
+          <label htmlFor='input-message'>Message*</label>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 function ProjectCard() {
   return (
     <div className='rounded-xl max-w-md shadow-xl relative'>
@@ -180,7 +279,9 @@ function ProjectCard() {
       <div className='rounded-xl flex flex-col text-left p-6 -mt-16 z-10 bg-white relative'>
         <h3 className={`${rubik.className} text-2xl text-dark-blue`}>Project Name</h3>
         <div className='text-primary-red font-semibold text-sm'>12 March 2023</div>
-        <p className='text-secondary-gray-75'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <p className='text-secondary-gray-75'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
       </div>
     </div>
   );

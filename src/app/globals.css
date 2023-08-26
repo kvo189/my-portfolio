@@ -11,6 +11,7 @@
   --break-lg: 1024px;
   --break-xl: 1280px;
   --break-2xl: 1536px;
+  --primary-red: #F1665A; 
 }
 
 /* @media (prefers-color-scheme: dark) {

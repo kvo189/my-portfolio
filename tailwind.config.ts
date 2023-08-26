@@ -14,9 +14,10 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'primary-red': '#F1665A',
+        'primary-red': 'var(--primary-red)',
         'primary-red-hover': '#ef574a',
         'primary-red-active': '#ee493b',
+        'secondary-red': '#FF595A',
         'primary-blue': '#8DA9D4',
         'dark-blue': '#010F5C',
         'primary-yellow': '#EBCA9A',
@@ -31,6 +32,12 @@ const config: Config = {
         urbanist: ['var(--font-urbanist)'],
         rubik: ['var(--font-rubik)'],
         notoSans: ['var(--font-notoSans)'],
+      },
+      boxShadow: {
+        'red': '6px 6px 25px 0px rgba(255, 89, 90, 0.2)',
+      },
+      borderRadius: {
+        '1sm': '4px',
       }
     },
   },
