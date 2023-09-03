@@ -16,7 +16,7 @@ export function Button({ icon, text, anchor = false, className }: ButtonProps) {
       <Tag
         className={`relative text-white text-base md:text-lg font-medium 
         select-none py-2 px-3 
-        flex gap-1 items-center justify-center
+        flex gap-2 items-center justify-center
         w-fit cursor-pointer
         z-10
         after:-skew-x-6 
