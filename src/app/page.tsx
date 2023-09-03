@@ -181,13 +181,15 @@ function Section2() {
 function Section3() {
   return (
     <>
-      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
+      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className} w-full`}>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Professional <span className='text-primary-red'>Experience</span>
         </h2>
         <div
           className='relative text-white
-            p-6 text-left
+            p-6 md:p-9
+            text-left
+            w-full
             flex flex-col
             after:-skew-x-2 
             after:content-[""] 
@@ -203,14 +205,23 @@ function Section3() {
             drop-shadow-red
             '
         >
-          <h3 className='text-xl'>Senior Software Engineer</h3>
-          <div className='text-sm text-white/60 mb-2'>Company Name</div>
-          <div className='text-lg mb-4'>July 2018 - Till Now</div>
-          <p className='font-light'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>
+          <div className='flex flex-col md:flex-row justify-between'>
+            <div>
+              <h3 className='text-xl'>Software Engineer I</h3>
+              <div className='text-sm text-white/60 mb-2'>Pack Health - A Quest Diagnostics company</div>
+            </div>
+            <div className='text-base md:text-xl mb-4'>January 2022 - Present</div>
+          </div>
+          <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
+            <li>Developed full-stack internal and member-facing web applications using Angular and Node.js, resulting in improved user experience and engagement.</li>
+            <li>
+              Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform's functionality
+              for the company.
+            </li>
+            <li>Managed and optimized AWS infrastructure with CloudFormation, Lambda, API Gateway, and S3, ensuring high availability and scalability for critical systems.</li>
+            <li>Implemented the company's internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
+            <li>Refactored legacy code, conducted ETL operations to synchronize data from Salesforce to Contentful, and deployed bug fixes to improve user satisfaction.</li>
+          </ul>
         </div>
       </section>
     </>
