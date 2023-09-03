@@ -1,0 +1,52 @@
+
+
+.inputControl {
+    position: relative;
+    display: flex;;
+    width: 100%;
+    border-bottom: 1.5px solid #E6E8EB;
+}
+.inputControl:not(textarea) {
+    margin-top: 12px;
+}
+
+.inputControl:focus-within {
+    border-bottom: 1.5px solid var(--primary-red);
+}
+
+.formInput {
+    width: 100%;
+    padding: 4px;
+}
+
+.formInput+label {
+    color: #79869F;
+    font-family: var(--font-rubik);
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+textarea.formInput {
+    resize: none;
+}
+
+.formInput:focus {
+    outline: none;
+    /* border-bottom: 1.5px solid var(--primary-red); */
+}
+
+.formInput:not(:placeholder-shown)+label,
+.formInput:focus+label {
+    font-family: var(--font-rubik);
+    font-size: 0.625rem;
+    top: -6px;
+}
+
+.formInput:focus+label {
+    line-height: 24px   ;
+    color: var(--primary-red);
+}
