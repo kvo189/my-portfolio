@@ -27,6 +27,7 @@ import { faAddressBook, faEnvelope, faPaperPlane } from '@fortawesome/free-regul
 import { Button } from '@/components/Button';
 import styles from './page.module.css';
 import { ContactCard } from '@/components/ContactCard';
+import { Brand } from '@/components';
 
 config.autoAddCss = false;
 
@@ -39,13 +40,14 @@ export default function Home() {
   return (
     <>
       <Navigation padding={bodyPadding} />
-      <main className={`py-10 flex min-h-screen flex-col items-center gap-10 ${bodyPadding} max-w-6xl m-auto`}>
+      <main className={`py-10 flex min-h-screen flex-col items-center gap-16 ${bodyPadding} max-w-6xl m-auto`}>
         <HomeContent />
         <Section1 />
         <Section2 />
         <Section3 />
         <ContactCard />
       </main>
+      <Footer></Footer>
     </>
   );
 }
@@ -214,60 +216,33 @@ function Section3() {
   );
 }
 
-function ContactCard1() {
+function Footer() {
   return (
-    <div className='bg-white rounded-xl shadow-lg p-6'>
-      <h2 className='text-xl font-notoSans mb-2'>Let's discuss your project</h2>
-      <p className='text-secondary-gray-75 mb-4'>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p>
+    <footer className={`${styles.footer} text-center flex flex-col justify-center py-12 gap-8 font-rubik`}>
+      <Brand></Brand>
 
-      <div className='flex flex-col gap-2'>
-        <div className='bg-white rounded-xl shadow-lg p-6 flex gap-3'>
-          <div className='rounded-1sm bg-primary-red p-3 inline-flex items-center'>
-            <FontAwesomeIcon icon={faLocationDot} className='text-white w-6  fa-lg' />
-          </div>
-          <div>
-            <div>Location:</div>
-            <div>Birmingham, AL</div>
-          </div>
-        </div>
-        <div className='p-6 flex gap-3'>
-          <div className='rounded-1sm bg-secondary-red/10 p-3 inline-flex items-center'>
-            <FontAwesomeIcon icon={faEnvelope} className='text-primary-red w-6 fa-lg' />
-          </div>
-          <div>
-            <div>Email:</div>
-            <div>kvo189@gmail.com</div>
-          </div>
-        </div>
-
-        <div className='p-6 flex gap-3'>
-          <div className='rounded-1sm bg-secondary-red/10 p-3 inline-flex items-center'>
-            <FontAwesomeIcon icon={faAddressBook} className='text-primary-red w-6 fa-lg' />
-          </div>
-          <div>
-            <div>Phone:</div>
-            <div>714-622-0624</div>
-          </div>
-        </div>
+      <div className='flex justify-center gap-6'>
+        <SocialMediaButton icon={faLinkedinIn} href='https://www.linkedin.com/in/khang-vo-kvo/' />
+        <SocialMediaButton icon={faGithub} href='https://github.com/kvo189' />
       </div>
 
-      <form action='' className='flex flex-col gap-6 w-full'>
-        <div className={`${styles.inputControl}`}>
-          <input id='input-name' className={`${styles.formInput}`} type='text' name='name' aria-label='Name' placeholder=' ' />
-          <label htmlFor='input-name'>Name*</label>
-        </div>
-        <div className={`${styles.inputControl}`}>
-          <input id='input-subject' className={`${styles.formInput}`} type='text' name='subject' aria-label='subject' placeholder=' ' />
-          <label htmlFor='input-subject'>Subject*</label>
-        </div>
-        <div className={`${styles.inputControl}`}>
-          <textarea id='input-message' className={`${styles.formInput}`} name='message' aria-label='message' placeholder=' ' />
-          {/* <TextareaAutosize/>  */}
-          {/* <span className={`${styles.formInput}`}  placeholder=' asd'  role='textbox' contentEditable></span> */}
-          <label htmlFor='input-message'>Message*</label>
-        </div>
-      </form>
-    </div>
+      <ul className='flex justify-center gap-5 text-[#79869F]'>
+        <li>
+          <a className='' href=''>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href=''>About me</a>
+        </li>
+        <li>
+          <a href=''>Projects</a>
+        </li>
+        <li>
+          <a href=''>Experience</a>
+        </li>
+      </ul>
+    </footer>
   );
 }
 

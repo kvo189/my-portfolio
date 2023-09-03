@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { inter, rubik, urbanist } from './font';
+import { inter, notoSans, rubik, urbanist } from './font';
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <html lang='en' className={`${inter.variable} ${rubik.variable} ${urbanist.variable}`}>
+      <html lang='en' className={`${inter.variable} ${rubik.variable} ${urbanist.variable} ${notoSans.variable}`}>
         <body>{children}</body>
       </html>
     </>

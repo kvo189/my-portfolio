@@ -6,17 +6,19 @@ interface ButtonProps {
   icon: IconDefinition;
   text: string;
   anchor?: boolean;
+  className?: string;
 }
 
-export function Button({ icon, text, anchor = false }: ButtonProps) {
+export function Button({ icon, text, anchor = false, className }: ButtonProps) {
   const Tag = anchor ? 'a' : ('button' as keyof JSX.IntrinsicElements);
   return (
     <>
       <Tag
-        className='relative text-white text-base md:text-lg font-medium 
+        className={`relative text-white text-base md:text-lg font-medium 
         select-none py-2 px-3 
         flex gap-1 items-center justify-center
         w-fit cursor-pointer
+        z-10
         after:-skew-x-6 
         after:content-[""] 
         after:w-full 
@@ -32,7 +34,8 @@ export function Button({ icon, text, anchor = false }: ButtonProps) {
         after:absolute 
         after:-z-10 
         after:rounded-md
-        '
+        ${className}
+        `}
       >
         <FontAwesomeIcon icon={icon} />
         {text}

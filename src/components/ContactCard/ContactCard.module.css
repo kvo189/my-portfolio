@@ -22,7 +22,7 @@
 .formInput+label {
     color: #79869F;
     font-family: var(--font-rubik);
-    font-size: small;
+    font-size: 1rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

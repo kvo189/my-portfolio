@@ -5,6 +5,7 @@ import styles from './Navigation.module.css';
 import Image from 'next/image';
 import hamburgerIcon from '@/assets/menu-left-alt.svg';
 import { rubik, urbanist } from '@/app/font';
+import { Brand } from '..';
 
 interface Props {
   padding?: string;
@@ -17,18 +18,9 @@ export function Navigation({ padding }: Props) {
       {/* Create header component with Logo on the left Home, About me, Projects, Experience links in the middle and a "Let's talk button" on the right*/}
       <nav
         className={`relative py-4 sm:py-8 shadow-sm flex justify-between 
-        content-center leading-8 border border-[#79869F4D] ${padding} ${rubik.className}`}
+        content-center leading-8 border border-[#79869F4D] z-50 ${padding} ${rubik.className}`}
       >
-        <div className='flex gap-2 items-center'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26' fill='none' className={urbanist.className}>
-            <circle cx='12.7543' cy='12.7543' r='12.7543' fill='#F1665A' />
-            {/* add text "K" in the middle of circle */}
-            <text x='8' y='18' fill='white' fontSize='14px' fontWeight='bold'>K</text>
-          </svg>
-          <h1 className={`text-lg sm:text-2xl font-bold text-secondary-gray`}>
-            Khang_<span className='text-primary-red'>Vo</span>
-          </h1>
-        </div>
+        <Brand></Brand>
 
         <section className='MOBILE-MENU flex md:hidden'>
           <button
