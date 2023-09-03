@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <Navigation padding={bodyPadding} />
-      <main className={`py-10 flex min-h-screen flex-col items-center gap-16 ${bodyPadding} max-w-6xl m-auto`}>
+      <main className={`py-10 flex min-h-screen flex-col items-center gap-16 md:gap-24 lg:gap-32 ${bodyPadding} max-w-6xl m-auto`}>
         <HomeContent />
         <Section1 />
         <Section2 />
@@ -54,10 +54,10 @@ export default function Home() {
 
 function HomeContent() {
   return (
-    <section className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 items-center text-secondary-gray`}>
+    <section className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray`}>
       {/* Text */}
-      <div className='flex flex-col flex-1 basis-52 md:items-start md:text-left'>
-        <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold`}>
+      <div className='flex flex-col flex-1 lg:basis-0 md:items-start md:text-left basis-2/5'>
+        <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
           <span className='text-secondary-gray-75'>Hello, my name is </span>
           <span className='text-primary-red'>Khang Vo.</span>
           <br></br>
@@ -81,7 +81,7 @@ function HomeContent() {
         </div>
       </div>
       {/* Image */}
-      <div className='mt-6 px-14 md:px-0 flex flex-1 md:flex-1 justify-center'>
+      <div className='mt-6 px-14 md:px-0 flex flex-1 md:flex-1 justify-center basis-2/5'>
         <Image className='rounded-3xl' src={profilePic} alt='' width={337} height={474} unoptimized />
       </div>
     </section>
@@ -133,9 +133,9 @@ function Section1() {
   ];
   return (
     <>
-      <section className='flex flex-col md:gap-8 md:flex-row-reverse items-center text-secondary-gray text-center'>
-        <div className='flex flex-col flex-1 md:items-start md:text-left '>
-          <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold`}>
+      <section className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center'>
+        <div className='flex flex-col flex-1 md:items-start md:text-left md:basis-1/2'>
+          <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
             Ready to Elevate Your Next <span className='text-primary-red'>Project!</span>
           </h2>
           <p className='mt-3 text-secondary-gray-75 font-rubik lg:text-lg'>
@@ -144,7 +144,7 @@ function Section1() {
             always adding new capabilities to my repertoire.
           </p>
         </div>
-        <div className='mt-6 flex flex-1 md:flex-1 justify-start'>
+        <div className='mt-6 flex flex-1 md:flex-1 md:basis-1/2 justify-start'>
           <div id={styles.skillsBackground}>
             {skillsArray.map((skill, i) => (
               <div key={skill.name} className={styles.skillCard}>
@@ -163,7 +163,7 @@ function Section2() {
   return (
     <>
       <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
-        <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold mb-6 sm:mb-8`}>
+        <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Recent <span className='text-primary-red'>Projects</span>
         </h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
@@ -182,7 +182,7 @@ function Section3() {
   return (
     <>
       <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
-        <h2 className={`${notoSans.className} text-2xl lg:text-3xl font-bold mb-6 sm:mb-8`}>
+        <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Professional <span className='text-primary-red'>Experience</span>
         </h2>
         <div
@@ -200,7 +200,8 @@ function Section3() {
             after:absolute 
             after:-z-10 
             after:rounded-2xl
-            after:shadow-red'
+            drop-shadow-red
+            '
         >
           <h3 className='text-xl'>Senior Software Engineer</h3>
           <div className='text-sm text-white/60 mb-2'>Company Name</div>

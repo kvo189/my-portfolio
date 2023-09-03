@@ -33,8 +33,15 @@ const config: Config = {
         rubik: ['var(--font-rubik)'],
         notoSans: ['var(--font-notoSans)'],
       },
+      fontSize:{
+        '2rem': ['2rem', '3rem'],
+      },
       boxShadow: {
-        'red': '6px 6px 25px 0px rgba(255, 89, 90, 0.2)',
+        'red': '6px 6px 25px 0px rgba(255, 89, 90, 0.175)',
+        'gray': '0px 24px 124px 0px rgba(0, 0, 0, 0.10)'
+      },
+      dropShadow: {
+        'red': '0 25px 25px rgb(255, 89, 90, 0.175)'
       },
       borderRadius: {
         '1sm': '4px',

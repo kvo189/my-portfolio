@@ -18,7 +18,7 @@
 
 @media (min-width: 1024px) {
     #skillsBackground {
-        width: 498px;
+        width: 100%;
         height: 442px;
         row-gap: 32px;
         column-gap: 32px;
