@@ -41,10 +41,10 @@ export default function Home() {
     <>
       <Navigation padding={bodyPadding} />
       <main className={`py-10 flex min-h-screen flex-col items-center gap-16 md:gap-24 lg:gap-32 ${bodyPadding} max-w-6xl m-auto`}>
-        <HomeContent />
-        <Section1 />
-        <Section2 />
-        <Section3 />
+        <HomeContent id="home"/>
+        <Section1 id="skills"/>
+        <Section2 id="portfolio"/>
+        <Section3 id="experience"/>
         <ContactCard />
       </main>
       <Footer></Footer>
@@ -52,9 +52,9 @@ export default function Home() {
   );
 }
 
-function HomeContent() {
+function HomeContent({id}: {id: string}) {
   return (
-    <section className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray`}>
+    <section id={id} className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray`}>
       {/* Text */}
       <div className='flex flex-col flex-1 lg:basis-0 md:items-start md:text-left basis-2/5'>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
@@ -88,7 +88,7 @@ function HomeContent() {
   );
 }
 
-function Section1() {
+function Section1({id}: {id: string}) {
   const skillsArray = [
     {
       name: 'Javascript',
@@ -133,7 +133,7 @@ function Section1() {
   ];
   return (
     <>
-      <section className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center'>
+      <section id={id} className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center'>
         <div className='flex flex-col flex-1 md:items-start md:text-left md:basis-1/2'>
           <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
             Ready to Elevate Your Next <span className='text-primary-red'>Project!</span>
@@ -159,10 +159,10 @@ function Section1() {
   );
 }
 
-function Section2() {
+function Section2({id}: {id: string}) {
   return (
     <>
-      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
+      <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Recent <span className='text-primary-red'>Projects</span>
         </h2>
@@ -178,10 +178,10 @@ function Section2() {
   );
 }
 
-function Section3() {
+function Section3({id}: {id: string}) {
   return (
     <>
-      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className} w-full`}>
+      <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className} w-full`}>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Professional <span className='text-primary-red'>Experience</span>
         </h2>
