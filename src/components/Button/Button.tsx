@@ -7,9 +7,10 @@ interface ButtonProps {
   text: string;
   anchor?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
-export function Button({ icon, text, anchor = false, className }: ButtonProps) {
+export function Button({ icon, text, anchor = false, className, onClick }: ButtonProps) {
   const Tag = anchor ? 'a' : ('button' as keyof JSX.IntrinsicElements);
   return (
     <>
@@ -36,6 +37,7 @@ export function Button({ icon, text, anchor = false, className }: ButtonProps) {
         after:rounded-md
         ${className}
         `}
+        onClick={onClick}
       >
         <FontAwesomeIcon icon={icon} />
         {text}
