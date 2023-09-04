@@ -32,7 +32,7 @@ export function Navigation({ padding }: Props) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isNavOpen]);
+  });
 
   useEffect(() => {
     document.body.style.overflow = isNavOpen ? "hidden" : "unset";

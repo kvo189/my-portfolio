@@ -215,11 +215,11 @@ function Section3({id}: {id: string}) {
           <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
             <li>Developed full-stack internal and member-facing web applications using Angular and Node.js, resulting in improved user experience and engagement.</li>
             <li>
-              Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform's functionality
+              Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform&apos;s functionality
               for the company.
             </li>
             <li>Managed and optimized AWS infrastructure with CloudFormation, Lambda, API Gateway, and S3, ensuring high availability and scalability for critical systems.</li>
-            <li>Implemented the company's internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
+            <li>Implemented the company&apos;s internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
             <li>Refactored legacy code, conducted ETL operations to synchronize data from Salesforce to Contentful, and deployed bug fixes to improve user satisfaction.</li>
           </ul>
         </div>
