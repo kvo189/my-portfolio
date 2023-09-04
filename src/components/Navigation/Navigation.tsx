@@ -42,7 +42,7 @@ export function Navigation({ padding }: Props) {
     <nav
       ref={elRef}
       className={`py-4 sm:py-8 shadow-sm flex justify-between 
-        content-center leading-8 border border-[#79869F4D] z-50 
+        content-center leading-8 border-b border-[#79869F4D] z-50 
         sticky top-0 bg-white transition-all duration-500
         ${padding} ${rubik.className}`}
     >
