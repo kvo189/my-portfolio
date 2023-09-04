@@ -41,10 +41,10 @@ export default function Home() {
     <>
       <Navigation padding={bodyPadding} />
       <main className={`py-10 flex min-h-screen flex-col items-center gap-16 md:gap-24 lg:gap-32 ${bodyPadding} max-w-6xl m-auto`}>
-        <HomeContent />
-        <Section1 />
-        <Section2 />
-        <Section3 />
+        <HomeContent id="home"/>
+        <Section1 id="skills"/>
+        <Section2 id="portfolio"/>
+        <Section3 id="experience"/>
         <ContactCard />
       </main>
       <Footer></Footer>
@@ -52,9 +52,9 @@ export default function Home() {
   );
 }
 
-function HomeContent() {
+function HomeContent({id}: {id: string}) {
   return (
-    <section className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray`}>
+    <section id={id} className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray`}>
       {/* Text */}
       <div className='flex flex-col flex-1 lg:basis-0 md:items-start md:text-left basis-2/5'>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
@@ -88,7 +88,7 @@ function HomeContent() {
   );
 }
 
-function Section1() {
+function Section1({id}: {id: string}) {
   const skillsArray = [
     {
       name: 'Javascript',
@@ -133,7 +133,7 @@ function Section1() {
   ];
   return (
     <>
-      <section className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center'>
+      <section id={id} className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center'>
         <div className='flex flex-col flex-1 md:items-start md:text-left md:basis-1/2'>
           <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
             Ready to Elevate Your Next <span className='text-primary-red'>Project!</span>
@@ -159,10 +159,10 @@ function Section1() {
   );
 }
 
-function Section2() {
+function Section2({id}: {id: string}) {
   return (
     <>
-      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
+      <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Recent <span className='text-primary-red'>Projects</span>
         </h2>
@@ -178,16 +178,18 @@ function Section2() {
   );
 }
 
-function Section3() {
+function Section3({id}: {id: string}) {
   return (
     <>
-      <section className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
+      <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className} w-full`}>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
           Professional <span className='text-primary-red'>Experience</span>
         </h2>
         <div
           className='relative text-white
-            p-6 text-left
+            p-6 md:p-9
+            text-left
+            w-full
             flex flex-col
             after:-skew-x-2 
             after:content-[""] 
@@ -203,14 +205,23 @@ function Section3() {
             drop-shadow-red
             '
         >
-          <h3 className='text-xl'>Senior Software Engineer</h3>
-          <div className='text-sm text-white/60 mb-2'>Company Name</div>
-          <div className='text-lg mb-4'>July 2018 - Till Now</div>
-          <p className='font-light'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>
+          <div className='flex flex-col md:flex-row justify-between'>
+            <div>
+              <h3 className='text-xl'>Software Engineer I</h3>
+              <div className='text-sm text-white/60 mb-2'>Pack Health - A Quest Diagnostics company</div>
+            </div>
+            <div className='text-base md:text-xl mb-4'>January 2022 - Present</div>
+          </div>
+          <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
+            <li>Developed full-stack internal and member-facing web applications using Angular and Node.js, resulting in improved user experience and engagement.</li>
+            <li>
+              Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform&apos;s functionality
+              for the company.
+            </li>
+            <li>Managed and optimized AWS infrastructure with CloudFormation, Lambda, API Gateway, and S3, ensuring high availability and scalability for critical systems.</li>
+            <li>Implemented the company&apos;s internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
+            <li>Refactored legacy code, conducted ETL operations to synchronize data from Salesforce to Contentful, and deployed bug fixes to improve user satisfaction.</li>
+          </ul>
         </div>
       </section>
     </>
