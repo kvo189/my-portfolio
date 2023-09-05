@@ -1,47 +1,39 @@
 import { IconDefinition, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactNode } from 'react';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
   icon: IconDefinition;
   text: string;
   anchor?: boolean;
   className?: string;
+  href?: string;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-export function Button({ icon, text, anchor = false, className, onClick }: ButtonProps) {
+export function Button({ icon, text, anchor = false, className, onClick, href, disabled }: ButtonProps) {
   const Tag = anchor ? 'a' : ('button' as keyof JSX.IntrinsicElements);
+  if (disabled) {
+    onClick = () => {};
+    href = undefined;
+  }
   return (
-    <>
-      <Tag
-        className={`relative text-white text-base md:text-lg font-medium 
-        select-none py-2 px-3 
-        flex gap-2 items-center justify-center
-        w-fit cursor-pointer
-        z-10
-        after:-skew-x-6 
-        after:content-[""] 
-        after:w-full 
-        after:bg-primary-red 
-        hover:after:bg-primary-red-hover 
-        active:after:bg-primary-red-active
-        hover:after:shadow-md
-        active:after:shadow-inner
-        after:h-full 
-        after:block 
-        after:top-0 
-        after:left-0
-        after:absolute 
-        after:-z-10 
-        after:rounded-md
-        ${className}
+    <Tag
+      className={`
+        btn
+        rounded-md
+        transition-all
+        ${styles.btn}
+        ${className || ''}
         `}
-        onClick={onClick}
-      >
-        <FontAwesomeIcon icon={icon} />
-        {text}
-      </Tag>
-    </>
+      onClick={onClick}
+      href={href}
+      disabled={disabled}
+    >
+      <FontAwesomeIcon icon={icon} />
+      {text}
+    </Tag>
   );
 }

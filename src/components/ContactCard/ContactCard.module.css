@@ -13,6 +13,10 @@
 .inputControl:focus-within {
     border-bottom: 1.5px solid var(--primary-red);
 }
+.inputControl label {
+    user-select: none;
+    cursor: text;
+}
 
 .formInput {
     width: 100%;

@@ -4,22 +4,9 @@ import { notoSans, rubik } from './font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import profilePic from '@/assets/me_edit.png';
-import projectCardPlaceHolderImg from '@/assets/project_card_placeholder.png';
-import { faDatabase, faLocationDot, faMobile, faPhone } from '@fortawesome/free-solid-svg-icons';
-import {
-  faLinkedin,
-  faLinkedinIn,
-  faGithub,
-  faSquareJs,
-  faJava,
-  faSalesforce,
-  faReact,
-  faAngular,
-  faAws,
-  faNodeJs,
-  faHtml5,
-  faBootstrap,
-} from '@fortawesome/free-brands-svg-icons';
+import portfolioPreviewSmartHome from '@/assets/portfolio/portfolio_preview_smart_home.png';
+import { faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn, faGithub, faSquareJs, faJava, faSalesforce, faReact, faAngular, faAws, faNodeJs, faHtml5, faBootstrap } from '@fortawesome/free-brands-svg-icons';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { SocialMediaButton } from '@/components/SocialMediaButton/SocialMediaButton';
@@ -27,7 +14,7 @@ import { faAddressBook, faEnvelope, faPaperPlane } from '@fortawesome/free-regul
 import { Button } from '@/components/Button';
 import styles from './page.module.css';
 import { ContactCard } from '@/components/ContactCard';
-import { Brand } from '@/components';
+import { Brand, ProjectCard } from '@/components';
 
 config.autoAddCss = false;
 
@@ -41,10 +28,10 @@ export default function Home() {
     <>
       <Navigation padding={bodyPadding} />
       <main className={`py-10 flex min-h-screen flex-col items-center gap-16 md:gap-24 lg:gap-32 ${bodyPadding} max-w-6xl m-auto`}>
-        <HomeContent id="home"/>
-        <Section1 id="skills"/>
-        <Section2 id="portfolio"/>
-        <Section3 id="experience"/>
+        <HomeContent id='home' />
+        <Section1 id='skills' />
+        <Section2 id='portfolio' />
+        <Section3 id='experience' />
         <ContactCard />
       </main>
       <Footer></Footer>
@@ -52,9 +39,9 @@ export default function Home() {
   );
 }
 
-function HomeContent({id}: {id: string}) {
+function HomeContent({ id }: { id: string }) {
   return (
-    <section id={id} className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray`}>
+    <section id={id} className={`${rubik.className} text-center flex flex-col md:flex-row md:gap-8 lg:gap-20 items-center text-secondary-gray scroll-mt-20 md:scroll-mt-32`}>
       {/* Text */}
       <div className='flex flex-col flex-1 lg:basis-0 md:items-start md:text-left basis-2/5'>
         <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
@@ -69,8 +56,8 @@ function HomeContent({id}: {id: string}) {
           <span className='text-primary-red'>Pack Health - A Quest Diagnostics company</span>.
         </p>
         <div className='mt-6 flex items-center justify-center gap-6'>
-          <Button icon={faPaperPlane} text="Let's talk" anchor={true} />
-          <a href='' className='text-secondary-gray2 md:text-lg'>
+          <Button icon={faPaperPlane} text="Let's talk" anchor={true} href='#contact' />
+          <a href='#portfolio' className='text-secondary-gray2 md:text-lg hover:text-primary-red-hover transition-all'>
             See my projects
           </a>
         </div>
@@ -88,7 +75,7 @@ function HomeContent({id}: {id: string}) {
   );
 }
 
-function Section1({id}: {id: string}) {
+function Section1({ id }: { id: string }) {
   const skillsArray = [
     {
       name: 'Javascript',
@@ -133,7 +120,7 @@ function Section1({id}: {id: string}) {
   ];
   return (
     <>
-      <section id={id} className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center'>
+      <section id={id} className='flex flex-col md:gap-8 lg:gap-20 md:flex-row-reverse items-center text-secondary-gray text-center scroll-mt-20 md:scroll-mt-32'>
         <div className='flex flex-col flex-1 md:items-start md:text-left md:basis-1/2'>
           <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold`}>
             Ready to Elevate Your Next <span className='text-primary-red'>Project!</span>
@@ -159,39 +146,39 @@ function Section1({id}: {id: string}) {
   );
 }
 
-function Section2({id}: {id: string}) {
+function Section2({ id }: { id: string }) {
   return (
-    <>
-      <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className}`}>
-        <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
-          Recent <span className='text-primary-red'>Projects</span>
-        </h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-        </div>
-      </section>
-    </>
+    <section id={id} className={`flex flex-col items-center text-secondary-gray text-center font-rubik w-full scroll-mt-20 md:scroll-mt-32`}>
+      <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
+        Recent <span className='text-primary-red'>Projects</span>
+      </h2>
+      <div className='grid grid-cols-1 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 w-full'>
+        <ProjectCard
+          imageSrc={portfolioPreviewSmartHome}
+          title='Smart Home Application (POC)'
+          description='Empowers users to monitor and control home temperature, manipulate sensors wired to appliances through the UI, and track utility costs and usages via interactive tables and graphs, all powered by mock data. An innovative glimpse into efficient home management.'
+          startDate='February 2021 - March 2021'
+          stack={['React', 'Material UI', 'Express', 'PostgreSQL']}
+          link='https://khang-vo-smart-home.vercel.app/'
+        />
+      </div>
+    </section>
   );
 }
 
-function Section3({id}: {id: string}) {
+function Section3({ id }: { id: string }) {
   return (
-    <>
-      <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className} w-full`}>
-        <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
-          Professional <span className='text-primary-red'>Experience</span>
-        </h2>
-        <div
-          className='relative text-white
+    <section id={id} className={`flex flex-col items-center text-secondary-gray text-center ${rubik.className} w-full scroll-mt-20 md:scroll-mt-32`}>
+      <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
+        Professional <span className='text-primary-red'>Experience</span>
+      </h2>
+      <div
+        className='relative text-white
             p-6 md:p-9
             text-left
             w-full
             flex flex-col
-            after:-skew-x-2 
+            after:-skew-x-1 
             after:content-[""] 
             after:w-full 
             after:bg-primary-red 
@@ -204,27 +191,26 @@ function Section3({id}: {id: string}) {
             after:rounded-2xl
             drop-shadow-red
             '
-        >
-          <div className='flex flex-col md:flex-row justify-between'>
-            <div>
-              <h3 className='text-xl'>Software Engineer I</h3>
-              <div className='text-sm text-white/60 mb-2'>Pack Health - A Quest Diagnostics company</div>
-            </div>
-            <div className='text-base md:text-xl mb-4'>January 2022 - Present</div>
+      >
+        <div className='flex flex-col md:flex-row justify-between'>
+          <div>
+            <h3 className='text-xl'>Software Engineer I</h3>
+            <div className='text-sm text-white/60 mb-2'>Pack Health - A Quest Diagnostics company</div>
           </div>
-          <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
-            <li>Developed full-stack internal and member-facing web applications using Angular and Node.js, resulting in improved user experience and engagement.</li>
-            <li>
-              Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform&apos;s functionality
-              for the company.
-            </li>
-            <li>Managed and optimized AWS infrastructure with CloudFormation, Lambda, API Gateway, and S3, ensuring high availability and scalability for critical systems.</li>
-            <li>Implemented the company&apos;s internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
-            <li>Refactored legacy code, conducted ETL operations to synchronize data from Salesforce to Contentful, and deployed bug fixes to improve user satisfaction.</li>
-          </ul>
+          <div className='text-base md:text-xl mb-4'>January 2022 - Present</div>
         </div>
-      </section>
-    </>
+        <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
+          <li>Developed full-stack internal and member-facing web applications using Angular and Node.js, resulting in improved user experience and engagement.</li>
+          <li>
+            Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform&apos;s functionality
+            for the company.
+          </li>
+          <li>Managed and optimized AWS infrastructure with CloudFormation, Lambda, API Gateway, and S3, ensuring high availability and scalability for critical systems.</li>
+          <li>Implemented the company&apos;s internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
+          <li>Refactored legacy code, conducted ETL operations to synchronize data from Salesforce to Contentful, and deployed bug fixes to improve user satisfaction.</li>
+        </ul>
+      </div>
+    </section>
   );
 }
 
@@ -240,36 +226,31 @@ function Footer() {
 
       <ul className='flex justify-center gap-5 text-[#79869F]'>
         <li>
-          <a className='' href=''>
+          <a className='hover:text-primary-red' href='#home'>
             Home
           </a>
         </li>
         <li>
-          <a href=''>About me</a>
+          <a className='hover:text-primary-red' href='#skills'>
+            About
+          </a>
         </li>
         <li>
-          <a href=''>Projects</a>
+          <a className='hover:text-primary-red' href='#portfolio'>
+            Portfolio
+          </a>
         </li>
         <li>
-          <a href=''>Experience</a>
+          <a className='hover:text-primary-red' href='#experience'>
+            Experience
+          </a>
+        </li>
+        <li>
+          <a className='hover:text-primary-red' href='#contact'>
+            Contact
+          </a>
         </li>
       </ul>
     </footer>
-  );
-}
-
-function ProjectCard() {
-  return (
-    <div className='rounded-xl max-w-md shadow-xl relative'>
-      <Image src={projectCardPlaceHolderImg} alt='' className='rounded-xl w-full relative'></Image>
-
-      <div className='rounded-xl flex flex-col text-left p-6 -mt-16 z-10 bg-white relative'>
-        <h3 className={`${rubik.className} text-2xl text-dark-blue`}>Project Name</h3>
-        <div className='text-primary-red font-semibold text-sm'>12 March 2023</div>
-        <p className='text-secondary-gray-75'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-        </p>
-      </div>
-    </div>
   );
 }

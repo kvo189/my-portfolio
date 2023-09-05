@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
+  --background-start-rgb: 254, 254, 254;
   --background-end-rgb: 255, 255, 255;
   --break-sm: 640px;
   --break-md: 768px;
@@ -12,6 +12,8 @@
   --break-xl: 1280px;
   --break-2xl: 1536px;
   --primary-red: #F1665A;
+  --primary-red-hover: #ef574a;
+  --primary-red-active: #ee493b;
   --primary-red-30: #f5948b; /* 30% lighter */
 }
 

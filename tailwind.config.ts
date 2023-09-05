@@ -15,8 +15,8 @@ const config: Config = {
       },
       colors: {
         'primary-red': 'var(--primary-red)',
-        'primary-red-hover': '#ef574a',
-        'primary-red-active': '#ee493b',
+        'primary-red-hover': 'var(--primary-red-hover)',
+        'primary-red-active': 'var(--primary-red-active)',
         'secondary-red': '#FF595A',
         'primary-blue': '#8DA9D4',
         'dark-blue': '#010F5C',
@@ -26,14 +26,14 @@ const config: Config = {
         'secondary-gray-50': '#25283A80',
         'secondary-gray-75': '#25283ABF',
         'secondary-gray2': '#474B63',
-      },    
+      },
       fontFamily: {
         inter: ['var(--font-inter)'],
         urbanist: ['var(--font-urbanist)'],
         rubik: ['var(--font-rubik)'],
         notoSans: ['var(--font-notoSans)'],
       },
-      fontSize:{
+      fontSize: {
         '2rem': ['2rem', '3rem'],
       },
       boxShadow: {
