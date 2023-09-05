@@ -6,6 +6,7 @@ import Image from 'next/image';
 import hamburgerIcon from '@/assets/menu-left-alt.svg';
 import { rubik, urbanist } from '@/app/font';
 import { Brand } from '..';
+import { useDebounce } from "@uidotdev/usehooks";
 
 interface Props {
   padding?: string;
@@ -14,17 +15,18 @@ interface Props {
 export function Navigation({ padding }: Props) {
   const elRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+  const [prevScroll, setPrevScroll] = useState(0); // initiate isNavOpen state with false
+  const debouncedScroll = useDebounce(prevScroll, 200);
 
-  let previousScrollPosition = 0;
   const handleScroll = () => {
     let currentScrollPosition = 0;
     currentScrollPosition = window.scrollY; // Get the new Value
-    if (previousScrollPosition - currentScrollPosition < 0) { //Subtract the two and conclude
+    if (debouncedScroll - currentScrollPosition < 0) { //Subtract the two and conclude
       elRef.current.style.top = `-${elRef.current.clientHeight}px`;
     } else {
       elRef.current.style.top = '0px';
     }
-    previousScrollPosition = currentScrollPosition; // Update the previous value
+    setPrevScroll(currentScrollPosition); // Update the previous value
   };
 
   useEffect(() => {
@@ -65,7 +67,7 @@ export function Navigation({ padding }: Props) {
               <line x1='6' y1='6' x2='18' y2='18' />
             </svg>
           </button>
-          <ul className='MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]'>
+          <ul className='MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] text-[#79869F]'>
             <li className='border-b border-gray-400 my-8 uppercase'>
               <a href='#home' onClick={() => setIsNavOpen(false)}>
                 Home
@@ -96,21 +98,19 @@ export function Navigation({ padding }: Props) {
       </section>
       <ul className='hidden md:flex content-center gap-8 text-[#79869F]'>
         <li>
-          <a className='text-primary-red font-bold' href='#home'>
-            Home
-          </a>
+          <a className='hover:text-primary-red' href='#home'>Home</a>
         </li>
         <li>
-          <a href='#skills'>About</a>
+          <a className='hover:text-primary-red' href='#skills'>About</a>
         </li>
         <li>
-          <a href='#portfolio'>Portfolio</a>
+          <a className='hover:text-primary-red' href='#portfolio'>Portfolio</a>
         </li>
         <li>
-          <a href='#experience'>Experience</a>
+          <a className='hover:text-primary-red' href='#experience'>Experience</a>
         </li>
         <li>
-          <a href='#contact'>Contact</a>
+          <a className='hover:text-primary-red' href='#contact'>Contact</a>
         </li>
       </ul>
     </nav>

@@ -8,16 +8,18 @@ import TextareaAutosize from 'react-textarea-autosize';
 import dynamic from 'next/dynamic';
 import { Button } from '../Button';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export function ContactCard() {
-  
-
-  function handleSubmit(event: any){
-      event.preventDefault();
+  const [name, setName] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  function handleSubmit(event: any) {
+    event.preventDefault();
   }
 
   const callAPI = async () => {
-    console.log('calling /users')
+    console.log('calling /users');
     try {
       const res = await axios.get('https://khang-vo-backend.onrender.com/users');
       // const res = await axios.get(`http://localhost:4200/users`);
@@ -29,8 +31,12 @@ export function ContactCard() {
     }
   };
 
+  useEffect(() => {
+    console.log(message);
+  }, [message]);
+
   return (
-    <div id='contact' className='bg-white rounded-xl shadow-xl p-6 font-rubik flex flex-col md:flex-row gap-4 md:gap-12'>
+    <div id='contact' className='mt-12 bg-white rounded-xl shadow-xl p-6 md:p-9 font-rubik flex flex-col md:flex-row gap-4 md:gap-12'>
       <div className='basis-3/4 lg:basis-full'>
         <h2 className='text-xl font-notoSans font-semibold mb-2 '>Let&apos;s discuss your project</h2>
         <p className='text-secondary-gray-75 mb-4'>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p>
@@ -66,20 +72,47 @@ export function ContactCard() {
       </div>
 
       <form action='' className='flex flex-col gap-6 w-full' onSubmit={handleSubmit}>
-        <div className={`${styles.inputControl}`}>
+        {/* <div className={`${styles.inputControl}`}>
           <input id='input-name' className={`${styles.formInput}`} type='text' name='name' aria-label='Name' placeholder=' ' />
           <label htmlFor='input-name'>Name*</label>
-        </div>
+        </div> */}
         <div className={`${styles.inputControl}`}>
-          <input id='input-subject' className={`${styles.formInput}`} type='text' name='subject' aria-label='subject' placeholder=' ' />
+          <input
+            id='input-subject'
+            className={`${styles.formInput}`}
+            type='text'
+            name='subject'
+            aria-label='subject'
+            placeholder=' '
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            required={true}
+          />
           <label htmlFor='input-subject'>Subject*</label>
         </div>
         <div className={`${styles.inputControl}`}>
-          <TextareaAutosize minRows={1} id='input-message' className={`${styles.formInput}`} name='message' aria-label='message' placeholder=' ' />
+          <TextareaAutosize
+            minRows={1}
+            id='input-message'
+            className={`${styles.formInput}`}
+            name='message'
+            aria-label='message'
+            placeholder=' '
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required={true}
+          />
           <label htmlFor='input-message'>Message*</label>
         </div>
 
-        <Button icon={faPaperPlane} text='submit' className='mt-4' onClick={callAPI}></Button>
+        <Button
+          icon={faPaperPlane}
+          text='submit'
+          className='mt-4 ml-auto md:mt-auto '
+          anchor={true}
+          href={`mailto:kvo189@gmail.com?subject=${subject}&body=${encodeURIComponent(message)}`}
+          disabled={!subject.length || !message.length}
+        ></Button>
       </form>
     </div>
   );

@@ -1,0 +1,29 @@
+.btn {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    width: fit-content;
+    user-select: none;
+    background: var(--primary-red);
+    &[disabled] {
+        opacity: 0.6;
+    }
+    &:hover:not([disabled]) {
+        --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        background: var(--primary-red-hover);
+    }
+
+    &:active:not([disabled]) {
+        --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        background: var(--primary-red-active);
+    }
+}
