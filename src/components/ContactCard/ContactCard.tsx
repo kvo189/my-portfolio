@@ -39,7 +39,7 @@ export function ContactCard() {
     <div id='contact' className='mt-12 bg-white rounded-xl shadow-xl p-6 md:p-9 font-rubik flex flex-col md:flex-row gap-4 md:gap-12'>
       <div className='basis-3/4 lg:basis-full'>
         <h2 className='text-xl font-notoSans font-semibold mb-2 '>Let&apos;s discuss your project</h2>
-        <p className='text-secondary-gray-75 mb-4'>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p>
+        <p className='text-secondary-gray-75 mb-4'>Please share the details of your project. I’ll review it carefully and get back to you as soon as possible.</p>
         <div className='flex flex-col gap-2'>
           <div className='bg-white rounded-xl shadow-lg p-6 flex gap-3'>
             <div className='rounded-1sm bg-primary-red p-3 inline-flex items-center'>
