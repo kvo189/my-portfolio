@@ -14,7 +14,7 @@ import { faAddressBook, faEnvelope, faPaperPlane } from '@fortawesome/free-regul
 import { Button } from '@/components/Button';
 import styles from './page.module.css';
 import { ContactCard } from '@/components/ContactCard';
-import { Brand, ProjectCard } from '@/components';
+import { Brand, ProjectCard, ExperienceCard } from '@/components';
 
 config.autoAddCss = false;
 
@@ -172,43 +172,36 @@ function Section3({ id }: { id: string }) {
       <h2 className={`${notoSans.className} text-2xl lg:text-2rem font-bold mb-6 sm:mb-8`}>
         Professional <span className='text-primary-red'>Experience</span>
       </h2>
-      <div
-        className='relative text-white
-            p-6 md:p-9
-            text-left
-            w-full
-            flex flex-col
-            after:-skew-x-1 
-            after:content-[""] 
-            after:w-full 
-            after:bg-primary-red 
-            after:h-full 
-            after:block 
-            after:top-0 
-            after:left-0
-            after:absolute 
-            after:-z-10 
-            after:rounded-2xl
-            drop-shadow-red
-            '
-      >
-        <div className='flex flex-col md:flex-row justify-between'>
-          <div>
-            <h3 className='text-xl'>Software Engineer I</h3>
-            <div className='text-sm text-white/60 mb-2'>Pack Health - A Quest Diagnostics company</div>
-          </div>
-          <div className='text-base md:text-xl mb-4'>January 2022 - Present</div>
-        </div>
-        <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
-          <li>Developed full-stack internal and member-facing web applications using Angular and Node.js, resulting in improved user experience and engagement.</li>
-          <li>
-            Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform&apos;s functionality
-            for the company.
-          </li>
-          <li>Managed and optimized AWS infrastructure with CloudFormation, Lambda, API Gateway, and S3, ensuring high availability and scalability for critical systems.</li>
-          <li>Implemented the company&apos;s internal design system and custom UI components, customizing Bootstrap to maintain brand consistency and improve usability.</li>
-          <li>Refactored legacy code, conducted ETL operations to synchronize data from Salesforce to Contentful, and deployed bug fixes to improve user satisfaction.</li>
-        </ul>
+      <div className='grid grid-cols-1 gap-6 sm:gap-8 w-full'>
+        <ExperienceCard
+          title='Software Engineer II'
+          company='Lattice'
+          location='San Francisco, CA (Remote)'
+          period='Sep 2025 - Nov 2025'
+        >
+          <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
+            <li>Built features for enterprise HR platform using React, TypeScript, GraphQL (Relay) in a production monorepo serving 5,000+ customers.</li>
+            <li>Contributed to GraphQL API services using Node.js, NestJS, and PostgreSQL with Kysely query builder.</li>
+            <li>Designed and analyzed A/B tests using Statsig feature flag platform to measure feature impact and guide product decisions.</li>
+          </ul>
+        </ExperienceCard>
+        <ExperienceCard
+          title='Software Engineer I'
+          company='Pack Health - A Quest Diagnostics company'
+          location='Birmingham, AL'
+          period='Jan 2022 - Sep 2025'
+        >
+          <ul className='text-sm font-light list-disc ml-3 gap-2 grid'>
+            <li>Developed and maintained full-stack web applications using Angular, Node.js, RESTful APIs, and PostgreSQL, supporting over 345,000 active members and improving user engagement and operational efficiency.</li>
+            <li>Contributed to the development and deployment of 20+ Angular-based web applications, each hosted as a standalone domain or subdomain, serving both internal teams and external members.</li>
+            <li>Architected and maintained cloud infrastructure across 500+ AWS Lambda functions, leveraging Infrastructure as Code (CloudFormation, Serverless Framework) to ensure 99.9% uptime, high availability, and fault tolerance.</li>
+            <li>Refactored legacy codebases using object-oriented programming principles, implemented CI/CD pipelines with Bitbucket Pipelines, and applied Test-Driven Development (TDD) practices using Mocha, Chai, and Cypress—maintaining over 80% unit test coverage across core applications.</li>
+            <li>Implemented ETL workflows to sync data from Contentful and Salesforce into PostgreSQL, enabling real-time and near-real-time data consistency across platforms. Salesforce updates are reflected in the database within seconds, while Contentful content changes sync to the database within 2 minutes, streamlining workflows and reducing manual coordination.</li>
+            <li>Created a microservice for PDF generation using Node.js and AWS SDK that dynamically retrieves data models, generates documents, stores them in S3, and distributes secure pre-signed URLs—delivering over 1,000 personalized documents per month with near-instant access.</li>
+            <li>Developed secure, role-based access portals for 1,000+ members and 50+ Health Advisors by integrating OAuth 2.0 authentication and authorization using AWS Cognito and Google Identity, ensuring data privacy and controlled access.</li>
+            <li>Integrated custom UI components into Salesforce pages, utilizing Apex, Visualforce, and Lightning Web Components, enhancing the Salesforce platform&apos;s functionality and user experience for internal teams.</li>
+          </ul>
+        </ExperienceCard>
       </div>
     </section>
   );
